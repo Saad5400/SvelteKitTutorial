@@ -1,27 +1,10 @@
 <script>
-	import '@skeletonlabs/skeleton/themes/theme-rocket.css';
+	// The ordering of these imports is critical to your app working properly
+	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
+	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-
-	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
-	import { storePopup } from '@skeletonlabs/skeleton';
-
-	import { autoModeWatcher } from '@skeletonlabs/skeleton';
-	import Navbar from '$lib/components/Navbar.svelte';
-
-	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
 
-<svelte:head>{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}</svelte:head>
-<Navbar links={[
-	{ name: 'Home', href: '/home' },
-	{ name: 'Admin', href: '/admin' },
-]}>
-
-</Navbar>
-<!-- Page Route Content -->
 <slot />
-
-<style lang="postcss">
-
-</style>
